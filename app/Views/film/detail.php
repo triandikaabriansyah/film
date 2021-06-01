@@ -17,11 +17,7 @@
                     <p class="card-text">Genre Film : <?= $film['genre']?></p>                    
                     <a href="/film/edit/<?= $film['slug']; ?>" class="btn btn-warning">Edit</a>
 
-                    <form action="/film/<?= $film['id']; ?>" method="post" class="d-inline">
-                        <?= csrf_field(); ?>
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin');">Delete</button>
-                    </form>
+                    <a href="/film/delete/<?= $film['id']; ?>" class="btn btn-danger tombol-hapus">Hapus</a>
                     <br><br>
                     <a href="<?= base_url('film/')?>">Kembali ke daftar film</a>
                 </div>

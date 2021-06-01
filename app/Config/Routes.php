@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('/film/create', 'film::create');
 $routes->get('/film/edit/(:segment)', 'film::edit/$1');
-$routes->delete('/film/(:num)', 'Film::delete/$1');
+$routes->get('/film/delete/(:num)', 'Film::delete/$1');
 $routes->get('/film/(:any)', 'Film::detail/$1');
 /*
  * --------------------------------------------------------------------

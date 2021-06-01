@@ -23,6 +23,7 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
     function previewImg(){
@@ -39,6 +40,27 @@
         imgPreview.src = e.target.result;
       }
     }
+ 
+    // tombol-hapus
+    $(".tombol-hapus").on("click", function(e) {
+        e.preventDefault();
+
+        const href = $(this).attr("href");
+
+        Swal.fire({
+            title: "Apakah anda yakin?",
+            text: "Data Film akan dihapus!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Hapus Data!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+              document.location.href = href;
+            }
+        });
+    });
     </script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
